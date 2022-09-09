@@ -15,6 +15,6 @@ class IndexController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return 'Singel Action!';
+        return view('tweet.index', ['name' => 'Laravel']);
     }
 }
