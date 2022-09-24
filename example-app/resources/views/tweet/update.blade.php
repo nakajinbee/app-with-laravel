@@ -10,26 +10,22 @@
 </head>
 
 <body>
-    <h1>つぶやきアプリ</h1>
+    <h1>つぶやきを編集する</h1>
     <div>
+        <a href="{{ route('tweet.index') }}">> 戻る</a>
         <p>投稿フォーム</p>
-        <form action="{{ route('tweet.create') }}" method="post">
+        <form action="{{ route('tweet.update.put', ['tweetId' => $tweet->id]) }}" method="post">
+            @method('PUT')
             @csrf
             <label for="tweet-content">つぶやき</label>
             <span>140文字まで</span>
-            <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力"></textarea>
+            <textarea id="tweet-content" type="text" name="tweet" placeholder="つぶやきを入力">{{ $tweet->content}}</textarea>
             @error('tweet')
             <p style="color:red">{{ $message }}</p>
             @enderror
-            <button type="submit">投稿</button>
+            <button type="submit">編集</button>
         </form>
-    </div>
-    <br>
-    <div>
-        @foreach($tweets as $tweet)
-        <p>{{ $tweet->content }}</p>
-        @endforeach
     </div>
 </body>
 
-</html> 
+</html>
