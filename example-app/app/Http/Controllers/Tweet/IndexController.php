@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Tweet;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tweet;
-use Illuminate\Http\Request;
 use App\Services\TweetService;
+use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
@@ -22,4 +21,3 @@ class IndexController extends Controller
             ->with('tweets', $tweets);
     }
 }
- 
